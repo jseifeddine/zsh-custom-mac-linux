@@ -207,6 +207,7 @@ myip() {
 }
 
 omz-update-custom() {
+  [ -d "$HOME/.zsh-custom/.git" ] && (cd "$HOME/.zsh-custom" && echo "Updating zsh-custom..." && git pull)
   # Update all custom plugins at once
   for plugin in ~/.oh-my-zsh/custom/plugins/*/; do
     [ -d "$plugin/.git" ] && (cd "$plugin" && echo "Updating $(basename $plugin)..." && git pull)
