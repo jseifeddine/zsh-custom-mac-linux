@@ -1,0 +1,5 @@
+# machine specific plugins
+
+plugins+=(
+    whatever
+)
