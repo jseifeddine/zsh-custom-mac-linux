@@ -46,29 +46,24 @@ ln -s ~/.local/dracula-zsh-theme/dracula.zsh-theme $ZSH_CUSTOM/themes/dracula.zs
 5. Backup existing .zshrc and use the new one:
 ```bash
 cp ~/.zshrc ~/.zshrc.backup
-
-# Option 1 overwrite .zshrc statically with from repo
-cp ~/.zsh-custom/.zshrc ~/.zshrc
-
-# Option 2 (recommended) if you want to pin your .zshrc to the repo (for updates)
 rm ~/.zshrc
 ln -s ~/.zsh-custom/.zshrc ~/.zshrc
 ```
 
-6. Reload shell:
-```bash
-source ~/.zshrc
-```
-
-7. Install custom bat config to make it more like cat - with Dracula theme (Optional)
+6. Install custom bat config to make it more like cat - with Dracula theme
 ```bash
 mkdir -p ~/.config/bat
 cp ~/.zsh-custom/.config/bat/config ~/.config/bat
 ```
 
+7. Reload shell:
+```bash
+source ~/.zshrc
+```
+
 ## Custom Functions
 
-- `myip` - Show external IP address
+- `myip` - Show external IP address and brief network info
 - `time-zsh` - Measure shell startup time
 - `omz-update-custom` - Update all custom omz plugins and dracula zsh theme
 
@@ -77,3 +72,4 @@ cp ~/.zsh-custom/.config/bat/config ~/.config/bat
 Add machine-specific settings to:
 - `~/.local/.zshrc` - Local configurations
 - `~/.local/.zshrc_plugins` - Additional local plugins
+- `~/.local/.zshrc_completions` - Additional local completions
