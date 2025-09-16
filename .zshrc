@@ -17,9 +17,9 @@ HIST_STAMPS="%d-%m-%y %H:%M:%S%z"
 # if on mac and running as root (sudo -s), disable compfix to avoid security warnings
 [[ "$OSTYPE" == "darwin"* && ($EUID -eq 0 || $USER == "root") ]] && ZSH_DISABLE_COMPFIX="true"
 
-plugins=(fast-syntax-highlighting zsh-autosuggestions fzf fzf-tab git zsh-bat docker)
+plugins=(fast-syntax-highlighting zsh-autosuggestions fzf fzf-tab git docker sudo)
 
-[[ "$OSTYPE" == "darwin"* ]] && plugins+=(bundler sudo dotenv macos rake rbenv ruby brew)
+[[ "$OSTYPE" == "darwin"* ]] && plugins+=(bundler dotenv macos rake rbenv ruby brew)
 
 # Load additional plugins from .local
 [[ -f ~/.local/.zshrc_plugins ]] && source ~/.local/.zshrc_plugins
@@ -79,6 +79,9 @@ bindkey "^[[3;9~" kill-line
 type brew &>/dev/null && export HOMEBREW_EDITOR=vim
 
 alias time-zsh='time zsh -i -c exit'
+
+# batcat
+command -v batcat >/dev/null 2>&1 && { alias rcat="$(which cat)"; alias cat="$(which batcat)"; } || { command -v bat >/dev/null 2>&1 && { alias rcat="$(which cat)"; alias cat="$(which bat)"; }; }
 
 myip() {
     local dns_ip http_ip dns_ptr http_ptr ips_same
